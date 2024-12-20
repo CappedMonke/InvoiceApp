@@ -1,0 +1,67 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31
+    },
+    "configurePresets": [
+        {
+            "name": "ConfigureDebugGnu",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/Build/DebugGnu",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "ConfigureReleaseGnu",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/Build/ReleaseGnu",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "ConfigureDebugClang",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/Build/DebugClang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        },
+        {
+            "name": "ConfigureReleaseClang",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/Build/ReleaseClang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "BuildDebugGnu",
+            "configurePreset": "ConfigureDebugGnu",
+            "jobs": 12
+        },
+        {
+            "name": "BuildReleaseGnu",
+            "configurePreset": "ConfigureReleaseGnu",
+            "jobs": 12
+        },
+        {
+            "name": "BuildDebugClang",
+            "configurePreset": "ConfigureDebugClang",
+            "jobs": 12
+        },
+        {
+            "name": "BuildReleaseClang",
+            "configurePreset": "ConfigureReleaseClang",
+            "jobs": 12
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "BuildDebugGnu",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/Build/DebugGnu",
+                "--preset",
+                "BuildDebugGnu"
+            ]
+        },
+        {
+            "label": "BuildReleaseGnu",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/Build/ReleaseGnu",
+                "--preset",
+                "BuildReleaseGnu"
+            ]
+        },
+        {
+            "label": "BuildDebugClang",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/Build/DebugClang",
+                "--preset",
+                "BuildDebugClang"
+            ]
+        },
+        {
+            "label": "BuildReleaseClang",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/Build/ReleaseClang",
+                "--preset",
+                "BuildReleaseClang"
+            ]
+        }
+    ]
+}

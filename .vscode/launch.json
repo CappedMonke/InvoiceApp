@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DebugGnu",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Build/DebugGnu/RechnungsApp",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "BuildDebugGnu"
+        },
+        {
+            "name": "ReleaseGnu",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Build/ReleaseGnu/RechnungsApp",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "BuildReleaseGnu"
+        },
+        {
+            "name": "DebugClang",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Build/DebugClang/RechnungsApp",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "BuildDebugClang"
+        },
+        {
+            "name": "ReleaseClang",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Build/ReleaseClang/RechnungsApp",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "BuildReleaseClang"
+        }
+    ]
+}
