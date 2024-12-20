@@ -2,47 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "BuildDebugGnu",
+            "label": "DebugGnuWorkflow",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--build",
-                "${workspaceFolder}/Build/DebugGnu",
-                "--preset",
-                "BuildDebugGnu"
+                "--workflow",
+                "DebugGnuWorkflow"
             ]
         },
         {
-            "label": "BuildReleaseGnu",
+            "label": "ReleaseGnuWorkflow",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--build",
-                "${workspaceFolder}/Build/ReleaseGnu",
-                "--preset",
-                "BuildReleaseGnu"
+                "--workflow",
+                "ReleaseGnuWorkflow"
             ]
         },
         {
-            "label": "BuildDebugClang",
+            "label": "DebugClangWorkflow",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--build",
-                "${workspaceFolder}/Build/DebugClang",
-                "--preset",
-                "BuildDebugClang"
+                "--workflow",
+                "DebugClangWorkflow"
             ]
         },
         {
-            "label": "BuildReleaseClang",
+            "label": "ReleaseClangWorkflow",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--build",
-                "${workspaceFolder}/Build/ReleaseClang",
-                "--preset",
-                "BuildReleaseClang"
+                "--workflow",
+                "ReleaseClangWorkflow"
             ]
         }
     ]

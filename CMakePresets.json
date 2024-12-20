@@ -63,5 +63,59 @@
             "configurePreset": "ConfigureReleaseClang",
             "jobs": 12
         }
+    ],
+    "workflowPresets": [
+        {
+            "name": "DebugGnuWorkflow",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "ConfigureDebugGnu"
+                },
+                {
+                    "type": "build",
+                    "name": "BuildDebugGnu"
+                }
+            ]
+        },
+        {
+            "name": "ReleaseGnuWorkflow",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "ConfigureReleaseGnu"
+                },
+                {
+                    "type": "build",
+                    "name": "BuildReleaseGnu"
+                }
+            ]
+        },
+        {
+            "name": "DebugClangWorkflow",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "ConfigureDebugClang"
+                },
+                {
+                    "type": "build",
+                    "name": "BuildDebugClang"
+                }
+            ]
+        },
+        {
+            "name": "ReleaseClangWorkflow",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "ConfigureReleaseClang"
+                },
+                {
+                    "type": "build",
+                    "name": "BuildReleaseClang"
+                }
+            ]
+        }
     ]
 }

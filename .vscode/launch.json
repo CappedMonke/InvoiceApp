@@ -6,44 +6,32 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Build/DebugGnu/RechnungsApp",
-            "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "MIMode": "gdb",
-            "preLaunchTask": "BuildDebugGnu"
+            "preLaunchTask": "DebugGnuWorkflow"
         },
         {
             "name": "ReleaseGnu",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Build/ReleaseGnu/RechnungsApp",
-            "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "MIMode": "gdb",
-            "preLaunchTask": "BuildReleaseGnu"
+            "preLaunchTask": "ReleaseGnuWorkflow"
         },
         {
             "name": "DebugClang",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/Build/DebugClang/RechnungsApp",
-            "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "BuildDebugClang"
+            "preLaunchTask": "DebugClangWorkflow"
         },
         {
             "name": "ReleaseClang",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/Build/ReleaseClang/RechnungsApp",
-            "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "BuildReleaseClang"
+            "preLaunchTask": "ReleaseClangWorkflow"
         }
     ]
 }
