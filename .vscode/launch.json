@@ -2,36 +2,36 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "DebugGnu",
+            "name": "Build Debug Gnu",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Build/DebugGnu/RechnungsApp",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "DebugGnuWorkflow"
+            "preLaunchTask": "BuildDebugGnu",
         },
         {
-            "name": "ReleaseGnu",
+            "name": "Build Release Gnu",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Build/ReleaseGnu/RechnungsApp",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "ReleaseGnuWorkflow"
+            "preLaunchTask": "BuildReleaseGnu",
         },
         {
-            "name": "DebugClang",
+            "name": "Build Debug Clang",
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/Build/DebugClang/RechnungsApp",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "DebugClangWorkflow"
+            "preLaunchTask": "BuildDebugClang"
         },
         {
-            "name": "ReleaseClang",
+            "name": "Build Release Clang",
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/Build/ReleaseClang/RechnungsApp",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "ReleaseClangWorkflow"
+            "preLaunchTask": "BuildReleaseClang"
         }
     ]
 }

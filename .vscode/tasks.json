@@ -2,39 +2,90 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "DebugGnuWorkflow",
+            "label": "ConfigureDebugGnu",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--workflow",
-                "DebugGnuWorkflow"
+                "--preset",
+                "ConfigureDebugGnu"
             ]
         },
         {
-            "label": "ReleaseGnuWorkflow",
+            "label": "ConfigureReleaseGnu",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--workflow",
-                "ReleaseGnuWorkflow"
+                "--preset",
+                "ConfigureReleaseGnu"
             ]
         },
         {
-            "label": "DebugClangWorkflow",
+            "label": "ConfigureDebugClang",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--workflow",
-                "DebugClangWorkflow"
+                "--preset",
+                "ConfigureDebugClang"
             ]
         },
         {
-            "label": "ReleaseClangWorkflow",
+            "label": "ConfigureReleaseClang",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--workflow",
-                "ReleaseClangWorkflow"
+                "--preset",
+                "ConfigureReleaseClang"
+            ]
+        },
+        {
+            "label": "ConfigureAll",
+            "type": "shell",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "ConfigureDebugGnu",
+                "ConfigureReleaseGnu",
+                "ConfigureDebugClang",
+                "ConfigureReleaseClang"
+            ]
+        },
+        {
+            "label": "BuildDebugGnu",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "BuildDebugGnu"
+            ]
+        },
+        {
+            "label": "BuildReleaseGnu",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "BuildReleaseGnu"
+            ]
+        },
+        {
+            "label": "BuildDebugClang",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "BuildDebugClang"
+            ]
+        },
+        {
+            "label": "BuildReleaseClang",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "BuildReleaseClang"
             ]
         }
     ]
