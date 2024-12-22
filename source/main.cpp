@@ -1,9 +1,14 @@
 #include <QApplication>
 #include <QMainWindow>
 
+#include "main_window.hpp"
+
+
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    QMainWindow mainWindow;
-    mainWindow.showMaximized();
+
+    Main_window main_window;
+    main_window.show();
+
     return app.exec();
 }

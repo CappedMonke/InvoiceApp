@@ -2,36 +2,36 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Build Debug Gnu",
+            "name": "build_debug_gnu",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Build/DebugGnu/RechnungsApp",
+            "program": "${workspaceFolder}/build/debug_gnu/invoice_app",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "BuildDebugGnu",
+            "preLaunchTask": "build_debug_gnu",
         },
         {
-            "name": "Build Release Gnu",
+            "name": "build_release_gnu",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Build/ReleaseGnu/RechnungsApp",
+            "program": "${workspaceFolder}/build/release_gnu/invoice_app",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "BuildReleaseGnu",
+            "preLaunchTask": "build_release_gnu",
         },
         {
-            "name": "Build Debug Clang",
+            "name": "build_debug_clang",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/Build/DebugClang/RechnungsApp",
+            "program": "${workspaceFolder}/build/debug_clang/invoice_app",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "BuildDebugClang"
+            "preLaunchTask": "build_debug_clang"
         },
         {
-            "name": "Build Release Clang",
+            "name": "build_release_clang",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/Build/ReleaseClang/RechnungsApp",
+            "program": "${workspaceFolder}/build/release_clang/invoice_app",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "BuildReleaseClang"
+            "preLaunchTask": "build_release_clang"
         }
     ]
 }

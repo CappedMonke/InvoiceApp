@@ -6,36 +6,36 @@
     },
     "configurePresets": [
         {
-            "name": "ConfigureDebugGnu",
+            "name": "configure_debug_gnu",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Build/DebugGnu",
+            "binaryDir": "${sourceDir}/build/debug_gnu",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_CXX_COMPILER": "g++"
             }
         },
         {
-            "name": "ConfigureReleaseGnu",
+            "name": "configure_release_gnu",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Build/ReleaseGnu",
+            "binaryDir": "${sourceDir}/build/release_gnu",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CXX_COMPILER": "g++"
             }
         },
         {
-            "name": "ConfigureDebugClang",
+            "name": "configure_debug_clang",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Build/DebugClang",
+            "binaryDir": "${sourceDir}/build/debug_clang",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_CXX_COMPILER": "clang++"
             }
         },
         {
-            "name": "ConfigureReleaseClang",
+            "name": "configure_release_clang",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Build/ReleaseClang",
+            "binaryDir": "${sourceDir}/build/release_clang",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CXX_COMPILER": "clang++"
@@ -44,76 +44,76 @@
     ],
     "buildPresets": [
         {
-            "name": "BuildDebugGnu",
-            "configurePreset": "ConfigureDebugGnu",
+            "name": "build_debug_gnu",
+            "configurePreset": "configure_debug_gnu",
             "jobs": 12
         },
         {
-            "name": "BuildReleaseGnu",
-            "configurePreset": "ConfigureReleaseGnu",
+            "name": "build_release_gnu",
+            "configurePreset": "configure_release_gnu",
             "jobs": 12
         },
         {
-            "name": "BuildDebugClang",
-            "configurePreset": "ConfigureDebugClang",
+            "name": "build_debug_clang",
+            "configurePreset": "configure_debug_clang",
             "jobs": 12
         },
         {
-            "name": "BuildReleaseClang",
-            "configurePreset": "ConfigureReleaseClang",
+            "name": "build_release_clang",
+            "configurePreset": "configure_release_clang",
             "jobs": 12
         }
     ],
     "workflowPresets": [
         {
-            "name": "WorkflowDebugGnu",
+            "name": "workflow_debug_gnu",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "ConfigureDebugGnu"
+                    "name": "configure_debug_gnu"
                 },
                 {
                     "type": "build",
-                    "name": "BuildDebugGnu"
+                    "name": "build_debug_gnu"
                 }
             ]
         },
         {
-            "name": "WorkflowReleaseGnu",
+            "name": "workflow_release_gnu",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "ConfigureReleaseGnu"
+                    "name": "configure_release_gnu"
                 },
                 {
                     "type": "build",
-                    "name": "BuildReleaseGnu"
+                    "name": "build_release_gnu"
                 }
             ]
         },
         {
-            "name": "WorkflowDebugClang",
+            "name": "workflow_debug_clang",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "ConfigureDebugClang"
+                    "name": "configure_debug_clang"
                 },
                 {
                     "type": "build",
-                    "name": "BuildDebugClang"
+                    "name": "build_debug_clang"
                 }
             ]
         },
         {
-            "name": "WorkflowReleaseClang",
+            "name": "workflow_release_clang",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "ConfigureReleaseClang"
+                    "name": "configure_release_clang"
                 },
                 {
                     "type": "build",
-                    "name": "BuildReleaseClang"
+                    "name": "build_release_clang"
                 }
             ]
         }
