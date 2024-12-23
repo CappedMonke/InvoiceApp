@@ -1,12 +1,12 @@
 #include "main_window.hpp"
 
 #include <QLabel>
+#include <QListWidget>
 #include <QMenuBar>
+#include <QPushButton>
 #include <QStatusBar>
 #include <QTableWidget>
 #include <QVBoxLayout>
-
-#include <invoice_table.hpp>
 
 
 Main_window::Main_window(QWidget* parent)
@@ -33,8 +33,26 @@ void Main_window::setup_ui()
 	QWidget* central_widget = new QWidget(this);
 	setCentralWidget(central_widget);
 
-	Invoice_table* invoice_table = new Invoice_table(5, 3, this);
+	QWidget*     left_widget = new QWidget(this);
+	QVBoxLayout* left_layout = new QVBoxLayout(left_widget);
+	left_layout->setAlignment(Qt::AlignTop);
 
-	QVBoxLayout* layout = new QVBoxLayout(central_widget);
-	layout->addWidget(invoice_table, 0, Qt::AlignHCenter);
+	QPushButton* button1 = new QPushButton("Button 1", this);
+	QPushButton* button2 = new QPushButton("Button 2", this);
+	QPushButton* button3 = new QPushButton("Button 3", this);
+
+	left_layout->addWidget(button1);
+	left_layout->addWidget(button2);
+	left_layout->addWidget(button3);
+
+	QTableWidget* invoice_table = new QTableWidget(5, 3, this);
+	invoice_table->setHorizontalHeaderLabels(
+	    {"Datum", "Artikel/Leistung", "Preis €"});
+	invoice_table->setEditTriggers(QAbstractItemView::DoubleClicked);
+	invoice_table->setSizePolicy(QSizePolicy::Expanding,
+	                             QSizePolicy::Expanding);
+
+	QHBoxLayout* main_layout = new QHBoxLayout(central_widget);
+	main_layout->addWidget(left_widget);
+	main_layout->addWidget(invoice_table);
 }
