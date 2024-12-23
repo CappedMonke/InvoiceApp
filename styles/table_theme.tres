@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://drexvsmtm5dcn"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://drexvsmtm5dcn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukapa"]
 bg_color = Color(0.273873, 0.273873, 0.273873, 1)
@@ -7,5 +7,9 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegch"]
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ukapa")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_cegch")
