@@ -1,33 +1,40 @@
 #include "main_window.hpp"
 
+#include <QLabel>
 #include <QMenuBar>
 #include <QStatusBar>
-#include <QLabel>
+#include <QTableWidget>
+#include <QVBoxLayout>
+
+#include <invoice_table.hpp>
 
 
-Main_window::Main_window(QWidget *parent)
+Main_window::Main_window(QWidget* parent)
     : QMainWindow(parent)
 {
-    setup_ui();
+	showMaximized();
+	setup_ui();
 }
 
-Main_window::~Main_window() 
+Main_window::~Main_window()
 {
 }
 
-void Main_window::setup_ui() 
+void Main_window::setup_ui()
 {
-    setWindowTitle("Rechnungs App");
+	setWindowTitle("Rechnungen");
 
-    QMenuBar *menu_bar = new QMenuBar(this);
-    setMenuBar(menu_bar);
+	QMenuBar* menu_bar = new QMenuBar(this);
+	setMenuBar(menu_bar);
 
-    QMenu *file_menu = menu_bar->addMenu("File");
-    file_menu->addAction("Exit", this, &Main_window::close);
+	QMenu* file_menu = menu_bar->addMenu("File");
+	file_menu->addAction("Exit", this, &Main_window::close);
 
-    QStatusBar *status_bar = new QStatusBar(this);
-    setStatusBar(status_bar);
+	QWidget* central_widget = new QWidget(this);
+	setCentralWidget(central_widget);
 
-    QLabel *status_label = new QLabel("Ready", this);
-    status_bar->addWidget(status_label);
+	Invoice_table* invoice_table = new Invoice_table(5, 3, this);
+
+	QVBoxLayout* layout = new QVBoxLayout(central_widget);
+	layout->addWidget(invoice_table, 0, Qt::AlignHCenter);
 }
