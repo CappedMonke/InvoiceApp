@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://pcoukgucto2q"]
+[gd_scene load_steps=4 format=3 uid="uid://pcoukgucto2q"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_v7vu5"]
+[ext_resource type="Theme" uid="uid://ct7cl64bw5uos" path="res://styles/main.tres" id="2_i6ww5"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="3_t3od1"]
 
-[node name="main" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +12,122 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v7vu5")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_i6ww5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_i6ww5")
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_i6ww5")
+script = ExtResource("3_t3od1")
+
+[node name="New" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Neu
+"
+
+[node name="Open" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Öffnen"
+
+[node name="Save" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Speichern"
+
+[node name="Export" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Exportieren
+"
+
+[node name="Shortcuts" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Kürzel"
+
+[node name="Settings" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme = ExtResource("2_i6ww5")
+text = "Einstellungen"
+
+[node name="OpenFileDialog" type="FileDialog" parent="VBoxContainer/Menu"]
+title = "Rechnung öffnen"
+initial_position = 2
+size = Vector2i(720, 480)
+file_mode = 0
+access = 2
+filters = PackedStringArray("*json")
+use_native_dialog = true
+
+[node name="NewWindow" type="Window" parent="VBoxContainer/Menu"]
+title = "Neue Rechnung"
+initial_position = 2
+size = Vector2i(300, 400)
+visible = false
+wrap_controls = true
+transient = true
+popup_window = true
+
+[node name="ShortcutsWindow" type="Window" parent="VBoxContainer/Menu"]
+auto_translate_mode = 1
+title = "Kürzel"
+initial_position = 2
+size = Vector2i(300, 400)
+visible = false
+wrap_controls = true
+transient = true
+popup_window = true
+
+[node name="SettingsWindow" type="Window" parent="VBoxContainer/Menu"]
+title = "Einstellungen"
+initial_position = 2
+size = Vector2i(300, 400)
+visible = false
+wrap_controls = true
+transient = true
+popup_window = true
+
+[node name="Body" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_i6ww5")
+
+[node name="Footer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_i6ww5")
+
+[connection signal="pressed" from="VBoxContainer/Menu/New" to="VBoxContainer/Menu" method="_on_new_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Open" to="VBoxContainer/Menu" method="_on_open_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Save" to="VBoxContainer/Menu" method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Export" to="VBoxContainer/Menu" method="_on_export_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Shortcuts" to="VBoxContainer/Menu" method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Settings" to="VBoxContainer/Menu" method="_on_settings_pressed"]
+[connection signal="file_selected" from="VBoxContainer/Menu/OpenFileDialog" to="VBoxContainer/Menu" method="_on_open_file_dialog_file_selected"]
+[connection signal="close_requested" from="VBoxContainer/Menu/NewWindow" to="VBoxContainer/Menu" method="_on_new_window_close_requested"]
+[connection signal="close_requested" from="VBoxContainer/Menu/ShortcutsWindow" to="VBoxContainer/Menu" method="_on_shortcuts_window_close_requested"]
+[connection signal="close_requested" from="VBoxContainer/Menu/SettingsWindow" to="VBoxContainer/Menu" method="_on_settings_window_close_requested"]
