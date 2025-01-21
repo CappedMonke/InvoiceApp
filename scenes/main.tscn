@@ -1,8 +1,139 @@
-[gd_scene load_steps=4 format=3 uid="uid://pcoukgucto2q"]
+[gd_scene load_steps=25 format=3 uid="uid://pcoukgucto2q"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_v7vu5"]
-[ext_resource type="Theme" uid="uid://ct7cl64bw5uos" path="res://styles/main.tres" id="2_i6ww5"]
-[ext_resource type="Script" path="res://scripts/menu.gd" id="3_t3od1"]
+[ext_resource type="FontFile" uid="uid://d1ug0o2q673ud" path="res://fonts/roboto/Roboto-Regular.ttf" id="2_bm3dy"]
+[ext_resource type="Script" path="res://scripts/menu/open.gd" id="3_jgixa"]
+[ext_resource type="Script" path="res://scripts/menu/settings.gd" id="4_w0at3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f43lr"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgc0l"]
+bg_color = Color(1, 1, 1, 0.117647)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(1, 1, 1, 0.117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmlhq"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm5q5"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvlyc"]
+bg_color = Color(0.368627, 0.360784, 0.392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u3gb"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7x16"]
+bg_color = Color(0.6, 0.756863, 0.945098, 1)
+expand_margin_left = 5.0
+expand_margin_top = 36.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_cckwm"]
+Button/styles/focus = SubResource("StyleBoxFlat_f43lr")
+Button/styles/hover = SubResource("StyleBoxFlat_fgc0l")
+Button/styles/normal = SubResource("StyleBoxFlat_kmlhq")
+Button/styles/pressed = SubResource("StyleBoxFlat_vm5q5")
+HBoxContainer/constants/separation = 0
+Label/fonts/font = ExtResource("2_bm3dy")
+LineEdit/fonts/font = ExtResource("2_bm3dy")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_nvlyc")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2u3gb")
+VBoxContainer/constants/separation = 0
+Window/colors/title_color = Color(0.141176, 0.141176, 0.141176, 1)
+Window/fonts/title_font = ExtResource("2_bm3dy")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_s7x16")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed5vu"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijocy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtiaj"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33kdd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4yko"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="Theme" id="Theme_4joqk"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("2_bm3dy")
+Button/styles/focus = SubResource("StyleBoxFlat_ijocy")
+Button/styles/hover = SubResource("StyleBoxFlat_mtiaj")
+Button/styles/normal = SubResource("StyleBoxFlat_33kdd")
+Button/styles/pressed = SubResource("StyleBoxFlat_y4yko")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7o66"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+expand_margin_left = 5.0
+expand_margin_top = 36.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_j2myq"]
+Window/colors/title_color = Color(1, 1, 1, 1)
+Window/fonts/title_font = ExtResource("2_bm3dy")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_w7o66")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5etu"]
+bg_color = Color(0.145098, 0.145098, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktbvv"]
+content_margin_left = 6.0
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.498039, 0.831373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqm32"]
+content_margin_left = 6.0
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyhg2"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -13,15 +144,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v7vu5")
 
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_i6ww5")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -29,58 +151,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_i6ww5")
+theme_override_constants/separation = 0
 
-[node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Menu" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cckwm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ed5vu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Menu"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
-theme = ExtResource("2_i6ww5")
-script = ExtResource("3_t3od1")
+theme_override_constants/separation = 0
 
-[node name="New" type="Button" parent="VBoxContainer/Menu"]
+[node name="New" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_i6ww5")
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
 text = "Neu
 "
 
-[node name="Open" type="Button" parent="VBoxContainer/Menu"]
-layout_mode = 2
-theme = ExtResource("2_i6ww5")
-text = "Öffnen"
-
-[node name="Save" type="Button" parent="VBoxContainer/Menu"]
-layout_mode = 2
-theme = ExtResource("2_i6ww5")
-text = "Speichern"
-
-[node name="Export" type="Button" parent="VBoxContainer/Menu"]
-layout_mode = 2
-theme = ExtResource("2_i6ww5")
-text = "Exportieren
-"
-
-[node name="Shortcuts" type="Button" parent="VBoxContainer/Menu"]
-layout_mode = 2
-theme = ExtResource("2_i6ww5")
-text = "Kürzel"
-
-[node name="Settings" type="Button" parent="VBoxContainer/Menu"]
-layout_mode = 2
-theme = ExtResource("2_i6ww5")
-text = "Einstellungen"
-
-[node name="OpenFileDialog" type="FileDialog" parent="VBoxContainer/Menu"]
-title = "Rechnung öffnen"
-initial_position = 2
-size = Vector2i(720, 480)
-file_mode = 0
-access = 2
-filters = PackedStringArray("*json")
-use_native_dialog = true
-
-[node name="NewWindow" type="Window" parent="VBoxContainer/Menu"]
+[node name="NewWindow" type="Window" parent="VBoxContainer/Menu/HBoxContainer/New"]
 title = "Neue Rechnung"
 initial_position = 2
 size = Vector2i(300, 400)
@@ -89,7 +182,47 @@ wrap_controls = true
 transient = true
 popup_window = true
 
-[node name="ShortcutsWindow" type="Window" parent="VBoxContainer/Menu"]
+[node name="Open" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
+text = "Öffnen"
+script = ExtResource("3_jgixa")
+
+[node name="OpenFileDialog" type="FileDialog" parent="VBoxContainer/Menu/HBoxContainer/Open"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(720, 480)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*json")
+use_native_dialog = true
+
+[node name="Save" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
+text = "Speichern"
+
+[node name="Export" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
+text = "Exportieren
+"
+
+[node name="Shortcuts" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
+text = "Kürzel"
+
+[node name="ShortcutsWindow" type="Window" parent="VBoxContainer/Menu/HBoxContainer/Shortcuts"]
 auto_translate_mode = 1
 title = "Kürzel"
 initial_position = 2
@@ -99,35 +232,80 @@ wrap_controls = true
 transient = true
 popup_window = true
 
-[node name="SettingsWindow" type="Window" parent="VBoxContainer/Menu"]
+[node name="Settings" type="Button" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4joqk")
+theme_override_fonts/font = ExtResource("2_bm3dy")
+theme_override_font_sizes/font_size = 16
+text = "Einstellungen"
+script = ExtResource("4_w0at3")
+
+[node name="SettingsWindow" type="Window" parent="VBoxContainer/Menu/HBoxContainer/Settings"]
+auto_translate_mode = 1
 title = "Einstellungen"
 initial_position = 2
-size = Vector2i(300, 400)
-visible = false
+size = Vector2i(500, 400)
 wrap_controls = true
 transient = true
 popup_window = true
+theme = SubResource("Theme_j2myq")
+theme_override_colors/title_color = Color(1, 1, 1, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5etu")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SavePath" type="HBoxContainer" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer/SavePath"]
+layout_mode = 2
+text = "Speicherpfad:"
+
+[node name="SavePath" type="LineEdit" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer/SavePath"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_ktbvv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xqm32")
+
+[node name="ExportPath" type="HBoxContainer" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer/ExportPath"]
+layout_mode = 2
+text = "Exportpfad:"
+
+[node name="ExportPath" type="LineEdit" parent="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow/PanelContainer/MarginContainer/VBoxContainer/ExportPath"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_ktbvv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xqm32")
 
 [node name="Body" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_i6ww5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nyhg2")
 
-[node name="Footer" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-theme = ExtResource("2_i6ww5")
-
-[connection signal="pressed" from="VBoxContainer/Menu/New" to="VBoxContainer/Menu" method="_on_new_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu/Open" to="VBoxContainer/Menu" method="_on_open_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu/Save" to="VBoxContainer/Menu" method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu/Export" to="VBoxContainer/Menu" method="_on_export_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu/Shortcuts" to="VBoxContainer/Menu" method="_on_shortcuts_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu/Settings" to="VBoxContainer/Menu" method="_on_settings_pressed"]
-[connection signal="file_selected" from="VBoxContainer/Menu/OpenFileDialog" to="VBoxContainer/Menu" method="_on_open_file_dialog_file_selected"]
-[connection signal="close_requested" from="VBoxContainer/Menu/NewWindow" to="VBoxContainer/Menu" method="_on_new_window_close_requested"]
-[connection signal="close_requested" from="VBoxContainer/Menu/ShortcutsWindow" to="VBoxContainer/Menu" method="_on_shortcuts_window_close_requested"]
-[connection signal="close_requested" from="VBoxContainer/Menu/SettingsWindow" to="VBoxContainer/Menu" method="_on_settings_window_close_requested"]
+[connection signal="pressed" from="VBoxContainer/Menu/HBoxContainer/Open" to="VBoxContainer/Menu/HBoxContainer/Open" method="_on_pressed"]
+[connection signal="close_requested" from="VBoxContainer/Menu/HBoxContainer/Open/OpenFileDialog" to="VBoxContainer/Menu/HBoxContainer/Open" method="_on_open_file_dialog_close_requested"]
+[connection signal="file_selected" from="VBoxContainer/Menu/HBoxContainer/Open/OpenFileDialog" to="VBoxContainer/Menu/HBoxContainer/Open" method="_on_open_file_dialog_file_selected"]
+[connection signal="pressed" from="VBoxContainer/Menu/HBoxContainer/Settings" to="VBoxContainer/Menu/HBoxContainer/Settings" method="_on_pressed"]
+[connection signal="close_requested" from="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow" to="VBoxContainer/Menu/HBoxContainer/Settings" method="_on_settings_window_close_requested"]
+[connection signal="focus_exited" from="VBoxContainer/Menu/HBoxContainer/Settings/SettingsWindow" to="VBoxContainer/Menu/HBoxContainer/Settings" method="_on_settings_window_focus_exited"]
