@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtvrstccqhk1l"]
+[gd_scene load_steps=24 format=3 uid="uid://dtvrstccqhk1l"]
 
 [ext_resource type="PackedScene" uid="uid://qhkcsexp3qwq" path="res://scenes/window.tscn" id="1_0y5un"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_31yvx"]
 [ext_resource type="PackedScene" uid="uid://douf0rlga6vhu" path="res://scenes/file_dialog.tscn" id="2_rvn2c"]
 [ext_resource type="PackedScene" uid="uid://bs2gm6kepajv6" path="res://scenes/text_input_label.tscn" id="3_a33ck"]
+[ext_resource type="Texture2D" uid="uid://04021dldxa5q" path="res://assets/add_circle.svg" id="4_rhh3i"]
+[ext_resource type="PackedScene" uid="uid://by67nbhsw3606" path="res://scenes/table_entry.tscn" id="6_qj868"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1tjl"]
 bg_color = Color(0.207843, 0.207843, 0.207843, 1)
@@ -32,7 +34,56 @@ border_width_left = 5
 border_width_right = 5
 border_color = Color(0.8, 0.8, 0.8, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1edr"]
+bg_color = Color(0.145098, 0.145098, 0.14902, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ngsq"]
+bg_color = Color(1, 1, 1, 0.117647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_murog"]
+bg_color = Color(1, 1, 1, 0.117647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l14tr"]
+bg_color = Color(1, 1, 1, 0.117647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5svc7"]
+bg_color = Color(0.145098, 0.145098, 0.14902, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oqbx"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qgu8"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miiby"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2egc"]
+bg_color = Color(1, 1, 1, 0.117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4ls3"]
+bg_color = Color(0.145098, 0.145098, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvuo8"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cabdq"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="Main" type="VBoxContainer"]
@@ -66,6 +117,7 @@ text = "Neu"
 
 [node name="Window" parent="Menu/Buttons/NewButton" instance=ExtResource("1_0y5un")]
 title = "Neue Rechnung"
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Buttons/NewButton/Window"]
 anchors_preset = 10
@@ -82,6 +134,26 @@ layout_mode = 2
 
 [node name="Label" parent="Menu/Buttons/NewButton/Window/MarginContainer/TextInputLabel" index="0"]
 text = "Kunde:"
+
+[node name="AddCustomerButton" type="Button" parent="Menu/Buttons/NewButton/Window/MarginContainer/TextInputLabel"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_f1edr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8ngsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_murog")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l14tr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5svc7")
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Buttons/NewButton/Window/MarginContainer/TextInputLabel/AddCustomerButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rhh3i")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="OpenButton" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
@@ -141,6 +213,22 @@ text = "Kürzel"
 title = "Kürzel"
 visible = false
 
+[node name="CustomersButton" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_48k8w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y763m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s8xrx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bscw")
+text = "Kunden"
+
+[node name="Window" parent="Menu/Buttons/CustomersButton" instance=ExtResource("1_0y5un")]
+title = "Kunden"
+visible = false
+
 [node name="SettingsButton" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -162,11 +250,208 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5oqbx")
 
+[node name="MarginContainer" type="MarginContainer" parent="Body"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PendingInvoices" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Heading" type="Label" parent="Body/MarginContainer/HBoxContainer/PendingInvoices"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qgu8")
+text = "Laufende Rechnungen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Body/MarginContainer/HBoxContainer/PendingInvoices"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Button" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button2" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button3" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button4" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button5" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button6" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button7" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button8" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button9" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Button10" type="Button" parent="Body/MarginContainer/HBoxContainer/PendingInvoices/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_miiby")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2egc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4ls3")
+text = "  Rechnung1"
+alignment = 0
+
+[node name="Table" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/separation = 4
+
+[node name="Heading" type="HBoxContainer" parent="Body/MarginContainer/HBoxContainer/Table"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Date" type="Label" parent="Body/MarginContainer/HBoxContainer/Table/Heading"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvuo8")
+text = "Datum"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Service" type="Label" parent="Body/MarginContainer/HBoxContainer/Table/Heading"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvuo8")
+text = "Artikel / Dienstleistung"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="Body/MarginContainer/HBoxContainer/Table/Heading"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvuo8")
+text = "Preis €"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer/Table"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Entry1" parent="Body/MarginContainer/HBoxContainer/Table/Content" instance=ExtResource("6_qj868")]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="Body/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cabdq")
+
 [connection signal="pressed" from="Menu/Buttons/NewButton" to="Menu" method="_on_new_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/OpenButton" to="Menu" method="_on_open_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SaveButton" to="Menu" method="_on_save_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/ExportButton" to="Menu" method="_on_export_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/ShortcutsButton" to="Menu" method="_on_shortcuts_button_pressed"]
+[connection signal="pressed" from="Menu/Buttons/CustomersButton" to="Menu" method="_on_customers_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SettingsButton" to="Menu" method="_on_settings_button_pressed"]
 
 [editable path="Menu/Buttons/NewButton/Window/MarginContainer/TextInputLabel"]

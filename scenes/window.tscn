@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/window.gd" id="1_j2hpd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdo2u"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyil7"]
 bg_color = Color(0.207843, 0.207843, 0.207843, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -28,7 +28,8 @@ size = Vector2i(500, 400)
 transparent = true
 theme_override_colors/title_color = Color(1, 1, 1, 1)
 theme_override_constants/title_height = 36
-theme_override_styles/embedded_border = SubResource("StyleBoxFlat_rdo2u")
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_wyil7")
+theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_wyil7")
 script = ExtResource("1_j2hpd")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -40,4 +41,3 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e6u08")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

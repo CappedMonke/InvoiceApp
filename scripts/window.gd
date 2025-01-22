@@ -6,4 +6,4 @@ func _on_close_requested() -> void:
 
 
 func _on_focus_exited() -> void:
-	hide()
+	grab_focus()
