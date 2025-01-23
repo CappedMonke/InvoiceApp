@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://douf0rlga6vhu" path="res://scenes/file_dialog.tscn" id="2_rvn2c"]
 [ext_resource type="PackedScene" uid="uid://bs2gm6kepajv6" path="res://scenes/text_input_label.tscn" id="3_a33ck"]
 [ext_resource type="Texture2D" uid="uid://04021dldxa5q" path="res://assets/add_circle.svg" id="4_rhh3i"]
-[ext_resource type="PackedScene" uid="uid://by67nbhsw3606" path="res://scenes/table_entry.tscn" id="6_qj868"]
+[ext_resource type="Script" path="res://scripts/table.gd" id="6_sfadn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1tjl"]
 bg_color = Color(0.207843, 0.207843, 0.207843, 1)
@@ -399,6 +399,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_constants/separation = 4
+script = ExtResource("6_sfadn")
 
 [node name="Heading" type="HBoxContainer" parent="Body/MarginContainer/HBoxContainer/Table"]
 custom_minimum_size = Vector2(0, 30)
@@ -438,9 +439,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Entry1" parent="Body/MarginContainer/HBoxContainer/Table/Content" instance=ExtResource("6_qj868")]
-layout_mode = 2
-
 [node name="Panel2" type="Panel" parent="Body/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -448,6 +446,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cabdq")
 
 [connection signal="pressed" from="Menu/Buttons/NewButton" to="Menu" method="_on_new_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/OpenButton" to="Menu" method="_on_open_button_pressed"]
+[connection signal="file_selected" from="Menu/Buttons/OpenButton/FileDialog" to="Menu" method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="Menu/Buttons/SaveButton" to="Menu" method="_on_save_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/ExportButton" to="Menu" method="_on_export_button_pressed"]
 [connection signal="pressed" from="Menu/Buttons/ShortcutsButton" to="Menu" method="_on_shortcuts_button_pressed"]

@@ -15,8 +15,17 @@ func _on_open_button_pressed() -> void:
 	open_window.show()
 
 
+func _on_file_dialog_file_selected(path: String) -> void:
+	var regex = RegEx.new()
+	if regex.compile(r"/(\d+)\.json$") == OK:
+		var regex_match = regex.search(path)
+		if regex_match:
+			var invoice_id = int(regex_match.get_string(1))
+			InvoiceManager.load_table(invoice_id)
+
+
 func _on_save_button_pressed() -> void:
-	pass # Replace with function body.
+	InvoiceManager.save_table()
 
 
 func _on_export_button_pressed() -> void:

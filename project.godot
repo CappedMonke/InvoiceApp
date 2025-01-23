@@ -14,3 +14,7 @@ config/name="invoice_app"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+InvoiceManager="*res://scripts/invoice_manager.gd"
