@@ -8,8 +8,10 @@ const INVOICES_COMPLETE_PATH := "Rechnungen/Rohdaten/Fertig"
 
 var table: Table = null
 var pending_invoices_list: PendingInvoicesList = null
-var current_invoice_id = -1
-var latest_invoice_id = -1
+var info: Info = null
+var current_invoice_id := -1
+var latest_invoice_id := -1
+var current_customer := ""
 
 
 func _ready() -> void:
@@ -22,6 +24,8 @@ func _ready() -> void:
 
 
 func save_table(pending: bool) -> void:
+	if table.is_empty():
+		return
 	if latest_invoice_id == current_invoice_id - 1:
 		latest_invoice_id = current_invoice_id
 	var table_data = table.get_data()
@@ -57,3 +61,8 @@ func export_invoice() -> void:
 
 func calculate_sum() -> void:
 	table.calculate_sum()
+
+
+func update_info() -> void:
+	info.invoice_id.text = "Rechnungsnummer: " + str(current_invoice_id)
+	info.person.text = "Person: " + current_customer

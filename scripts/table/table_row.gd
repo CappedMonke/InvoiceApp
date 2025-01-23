@@ -36,3 +36,7 @@ func get_price() -> float:
 
 func _on_price_text_text_changed() -> void:
 	InvoiceManager.calculate_sum()
+
+
+func is_empty() -> bool:
+	return date_text.get_text() == "" and service_text.get_text() == "" and price_text.get_text() == ""

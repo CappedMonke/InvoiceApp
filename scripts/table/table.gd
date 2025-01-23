@@ -14,7 +14,6 @@ var last_row: TableRow = null
 
 func _ready() -> void:
 	InvoiceManager.table = self
-	InvoiceManager.create_new_invoice()
 
 
 func create_empty_table() -> void:
@@ -71,3 +70,12 @@ func calculate_sum() -> void:
 	for row in content.get_children():
 		sum += (row as TableRow).get_price()
 	sum_label.text = "%.2f" % sum
+
+
+func is_empty() -> bool:
+	var is_empty_ := true
+	for row in content.get_children():
+		if not (row as TableRow).is_empty():
+			is_empty_ = false
+			break
+	return is_empty_
