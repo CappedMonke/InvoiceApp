@@ -2,10 +2,11 @@ class_name Table
 extends VBoxContainer
 
 
-const TABLE_ENTRY = preload("res://scenes/table_row.tscn")
+const TABLE_ENTRY = preload("res://scenes/table/table_row.tscn")
 
 
 @onready var content: VBoxContainer = $Content
+@onready var sum_label: Label = $Summary/Sum
 
 
 var last_row: TableRow = null
@@ -13,6 +14,11 @@ var last_row: TableRow = null
 
 func _ready() -> void:
 	InvoiceManager.table = self
+	InvoiceManager.create_new_invoice()
+
+
+func create_empty_table() -> void:
+	clear_table()
 	create_row()
 
 
@@ -22,11 +28,14 @@ func create_table_and_populate(data: Array) -> void:
 	for i in range(count_rows):
 		var row = create_row()
 		row.set_text(data[i])
+	calculate_sum()
 
 
 func clear_table() -> void:
+	last_row = null
 	for child in content.get_children():
-		child.queue_free()
+		child.free()
+	sum_label.text = "0.00"
 
 
 func set_last_row(row: TableRow) -> void:
@@ -55,3 +64,10 @@ func get_data() -> String:
 	for row in content.get_children():
 		data.push_back((row as TableRow).get_text())
 	return JSON.stringify(data)
+
+
+func calculate_sum() -> void:
+	var sum: float = 0
+	for row in content.get_children():
+		sum += (row as TableRow).get_price()
+	sum_label.text = "%.2f" % sum

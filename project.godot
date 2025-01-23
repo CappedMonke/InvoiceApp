@@ -17,4 +17,5 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-InvoiceManager="*res://scripts/invoice_manager.gd"
+InvoiceManager="*res://scripts/globals/invoice_manager.gd"
+Logger="*res://scripts/globals/logger.gd"

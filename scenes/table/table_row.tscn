@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by67nbhsw3606"]
 
-[ext_resource type="Script" path="res://scripts/table_row.gd" id="1_100c6"]
-[ext_resource type="PackedScene" uid="uid://bx43485l5x8sk" path="res://scenes/text_edit_no_tab.tscn" id="2_rmej4"]
+[ext_resource type="Script" path="res://scripts/table/table_row.gd" id="1_100c6"]
+[ext_resource type="PackedScene" uid="uid://bx43485l5x8sk" path="res://scenes/table/text_edit_no_tab.tscn" id="2_rmej4"]
 
 [node name="TableRow" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -28,3 +28,4 @@ size_flags_stretch_ratio = 0.2
 
 [connection signal="gui_input" from="PriceText" to="." method="_on_price_text_gui_input"]
 [connection signal="lost_focus_by_tab" from="PriceText" to="." method="_on_price_text_lost_focus_by_tab"]
+[connection signal="text_changed" from="PriceText" to="." method="_on_price_text_text_changed"]

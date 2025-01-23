@@ -25,11 +25,11 @@ func _on_file_dialog_file_selected(path: String) -> void:
 
 
 func _on_save_button_pressed() -> void:
-	InvoiceManager.save_table()
+	InvoiceManager.save_table(true)
 
 
 func _on_export_button_pressed() -> void:
-	pass # Replace with function body.
+	InvoiceManager.export_invoice()
 
 
 func _on_shortcuts_button_pressed() -> void:

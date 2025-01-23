@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cum5jutm6o2xp"]
+
+[ext_resource type="Script" path="res://scripts/miscellaneous/log_display.gd" id="1_nssgr"]
+[ext_resource type="Texture2D" uid="uid://b2f70pm5lllh6" path="res://assets/success.svg" id="2_bfo4v"]
+
+[node name="LogDisplay" type="HBoxContainer"]
+visible = false
+theme_override_constants/separation = 0
+alignment = 2
+script = ExtResource("1_nssgr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Placeholder"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_bfo4v")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
