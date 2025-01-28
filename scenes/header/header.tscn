@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://wahmcdrd0doi"]
+
+[ext_resource type="Theme" uid="uid://cofl3hfjim0cj" path="res://scenes/header/header.tres" id="1_qhn28"]
+
+[node name="menu_bar" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_qhn28")
+
+[node name="h_box" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+theme_override_constants/separation = 0
+
+[node name="new_button" type="Button" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+text = "Neu"
+
+[node name="open_button" type="Button" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+text = "Öffnen"
+
+[node name="complete_button" type="Button" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+text = "Fertigstellen"
+
+[node name="shortcuts_button" type="Button" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+text = "Kürzel"
+
+[node name="customers_button" type="Button" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_qhn28")
+text = "Kunden"

@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cofl3hfjim0cj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aiqt"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvnbm"]
+bg_color = Color(1, 1, 1, 0.0784314)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(1, 1, 1, 0.0784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ye34a"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_8aiqt")
+Button/styles/hover = SubResource("StyleBoxFlat_yvnbm")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_yvnbm")
+Button/styles/normal = SubResource("StyleBoxFlat_8aiqt")
+Button/styles/pressed = SubResource("StyleBoxFlat_yvnbm")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ye34a")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bghpkovmph4wg"]
+
+[ext_resource type="Theme" uid="uid://ccvqwvec0ekmk" path="res://scenes/footer/footer.tres" id="1_h3m27"]
+[ext_resource type="Texture2D" uid="uid://bsh5rg0c5a1ol" path="res://assets/icons/info.svg" id="2_aw7bg"]
+
+[node name="footer" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_h3m27")
+
+[node name="h_box" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_h3m27")
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="message" type="Label" parent="h_box"]
+layout_mode = 2
+theme = ExtResource("1_h3m27")
+text = "Message"
+
+[node name="margin" type="MarginContainer" parent="h_box"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="icon" type="TextureRect" parent="h_box/margin"]
+layout_mode = 2
+theme = ExtResource("1_h3m27")
+texture = ExtResource("2_aw7bg")
+expand_mode = 3
+stretch_mode = 4

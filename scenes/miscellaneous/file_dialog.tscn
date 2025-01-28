@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://douf0rlga6vhu"]
-
-[node name="FileDialog" type="FileDialog"]
-initial_position = 2
-size = Vector2i(303, 180)
-use_native_dialog = true
