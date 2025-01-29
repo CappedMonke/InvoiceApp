@@ -13,8 +13,9 @@ const COLOR_ERROR := Color("#ff7b63")
 
 const DURATION := 2.0
 
-@onready var label: Label = $message
-@onready var icon: TextureRect = $margin/icon
+@onready var _label: Label = $message
+@onready var _icon: TextureRect = $margin/icon
+@onready var _timer: Timer = $timer
 
 func _ready() -> void:
 	hide()
@@ -22,10 +23,11 @@ func _ready() -> void:
 
 func _set_log(message: String, texture: Texture2D, color: Color) -> void:
 	show()
-	label.text = message
-	icon.texture = texture
+	_label.text = message
+	_icon.texture = texture
 	modulate = color
-	await get_tree().create_timer(DURATION).timeout
+	_timer.start(DURATION)
+	await _timer.timeout
 	hide()
 
 func log_info(message: String) -> void:

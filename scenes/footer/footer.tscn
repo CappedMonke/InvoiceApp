@@ -1,11 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bghpkovmph4wg"]
+[gd_scene load_steps=3 format=3 uid="uid://bghpkovmph4wg"]
 
 [ext_resource type="Theme" uid="uid://ccvqwvec0ekmk" path="res://scenes/footer/footer.tres" id="1_h3m27"]
-[ext_resource type="Texture2D" uid="uid://bsh5rg0c5a1ol" path="res://assets/icons/info.svg" id="2_aw7bg"]
-[ext_resource type="Script" path="res://scenes/footer/log_message.gd" id="2_n1kjd"]
+[ext_resource type="PackedScene" uid="uid://br1yo8xcyc48l" path="res://scenes/footer/log_message.tscn" id="2_vk6p8"]
 
 [node name="footer" type="PanelContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 32)
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
@@ -18,28 +17,5 @@ theme = ExtResource("1_h3m27")
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="log_message" type="HBoxContainer" parent="h_box"]
+[node name="log_message" parent="h_box" instance=ExtResource("2_vk6p8")]
 layout_mode = 2
-theme_override_constants/separation = 0
-script = ExtResource("2_n1kjd")
-
-[node name="message" type="Label" parent="h_box/log_message"]
-layout_mode = 2
-size_flags_vertical = 1
-theme = ExtResource("1_h3m27")
-text = "Message"
-vertical_alignment = 1
-
-[node name="margin" type="MarginContainer" parent="h_box/log_message"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="icon" type="TextureRect" parent="h_box/log_message/margin"]
-layout_mode = 2
-theme = ExtResource("1_h3m27")
-texture = ExtResource("2_aw7bg")
-expand_mode = 3
-stretch_mode = 4

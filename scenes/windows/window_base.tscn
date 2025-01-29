@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bimjavdw4ifpw"]
+
+[ext_resource type="Theme" uid="uid://b1v6gwakv465t" path="res://scenes/windows/window.tres" id="1_1xb8s"]
+[ext_resource type="Script" path="res://scenes/windows/window_base.gd" id="2_v0j1o"]
+
+[node name="window_base" type="Window"]
+transparent_bg = true
+title = "WindowBase"
+initial_position = 3
+size = Vector2i(640, 360)
+current_screen = 0
+transparent = true
+theme = ExtResource("1_1xb8s")
+script = ExtResource("2_v0j1o")
+
+[node name="background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="content" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
