@@ -11,11 +11,11 @@ const COLOR_SUCCESS := Color("#8ff0a4")
 const COLOR_WARNING := Color("#f8e45c")
 const COLOR_ERROR := Color("#ff7b63")
 
-const DURATION := 2.0
+const DURATION := 3.0
 
-@onready var _label: Label = $message
-@onready var _icon: TextureRect = $margin/icon
-@onready var _timer: Timer = $timer
+@onready var label: Label = $message
+@onready var icon: TextureRect = $margin/icon
+@onready var timer: Timer = $timer
 
 func _ready() -> void:
 	hide()
@@ -23,11 +23,11 @@ func _ready() -> void:
 
 func _set_log(message: String, texture: Texture2D, color: Color) -> void:
 	show()
-	_label.text = message
-	_icon.texture = texture
+	label.text = message
+	icon.texture = texture
 	modulate = color
-	_timer.start(DURATION)
-	await _timer.timeout
+	timer.start(DURATION)
+	await timer.timeout
 	hide()
 
 func log_info(message: String) -> void:

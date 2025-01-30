@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmjo5kagt8yes"]
+
+[ext_resource type="PackedScene" uid="uid://bimjavdw4ifpw" path="res://scenes/windows/window_base.tscn" id="1_5fkx7"]
+[ext_resource type="Script" path="res://scenes/windows/shortcuts/window_shortcuts.gd" id="2_cjr6x"]
+
+[node name="window_shortcuts" instance=ExtResource("1_5fkx7")]
+title = "Kürzel"
+script = ExtResource("2_cjr6x")

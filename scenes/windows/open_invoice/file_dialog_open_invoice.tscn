@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl01m47sabk52"]
+
+[ext_resource type="Script" path="res://scenes/windows/open_invoice/file_dialog_open_invoice.gd" id="2_xy0vf"]
+
+[node name="file_dialog_open_invoice" type="FileDialog"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(303, 180)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.json")
+use_native_dialog = true
+script = ExtResource("2_xy0vf")
+
+[connection signal="canceled" from="." to="." method="_on_canceled"]
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

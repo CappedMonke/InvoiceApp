@@ -19,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1xb8s")
 
 [node name="content" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -26,7 +27,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1xb8s")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="v_box" type="VBoxContainer" parent="content"]
+layout_mode = 2
+theme = ExtResource("1_1xb8s")
