@@ -22,5 +22,7 @@ func log_error(message: String) -> void:
 	if log_message:
 		log_message.log_error(message)
 
-func log_not_implemented() -> void:
-	log_warning("Funktion wurde noch nicht implementiert!")
+func log_not_implemented(function := "") -> void:
+	if function == "":
+		log_warning("Funktion wurde noch nicht implementiert!")
+	log_warning(function + " wurde noch nicht implementiert!")

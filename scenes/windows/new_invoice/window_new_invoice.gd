@@ -18,7 +18,3 @@ func _find_customer_by_name(string: String) -> Customer:
 func _create_new_invoice(customer: Customer) -> void:
 	Logger.log_info("Neue Rechnung für Kunde \"" + customer.name + "\" angelegt.")
 	pass
-
-func _on_customer_selected(customer: Customer) -> void:
-	input.text = customer.name
-	prediction.text = ""
