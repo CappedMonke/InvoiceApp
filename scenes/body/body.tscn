@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpser220cjo77"]
+[gd_scene load_steps=3 format=3 uid="uid://dpser220cjo77"]
 
 [ext_resource type="Theme" uid="uid://p4scqyk35r4l" path="res://scenes/body/body.tres" id="1_u2blu"]
+[ext_resource type="PackedScene" uid="uid://drfybx3f45yuh" path="res://scenes/body/invoice_table/invoice_table.tscn" id="2_mltrw"]
 
 [node name="body" type="PanelContainer"]
 anchors_preset = 15
@@ -9,3 +10,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u2blu")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="invoice_table" parent="margin/HBoxContainer" instance=ExtResource("2_mltrw")]
+layout_mode = 2
+size_flags_horizontal = 3

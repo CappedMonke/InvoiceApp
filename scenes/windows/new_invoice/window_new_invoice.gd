@@ -16,5 +16,6 @@ func _find_customer_by_name(string: String) -> Customer:
 	return null
 
 func _create_new_invoice(customer: Customer) -> void:
-	Logger.log_not_implemented()
-	#Logger.log_info("Neue Rechnung für Kunde \"" + customer.name + "\" angelegt.")
+	Logger.log_info("Neue Rechnung für Kunde \"" + customer.name + "\" angelegt.")
+	var invoice := Invoice.new(customer.id)
+	PersistantData.display_invoice(invoice)

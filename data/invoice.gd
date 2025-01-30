@@ -4,9 +4,9 @@ extends RefCounted
 var id: String
 var customer_id: String
 var date: String
-var table: Array[InvoiceRow]
+var table: Array[InvoiceRowData]
 
-func _init(_customer_id: String, _id := "", _date := "", _table: Array[InvoiceRow] = []) -> void:
+func _init(_customer_id: String, _id := "", _date := "", _table: Array[InvoiceRowData] = []) -> void:
 	id = _id
 	customer_id = _customer_id
 	date = _date
@@ -30,7 +30,7 @@ static func from_dictionary(dictionary: Dictionary) -> Invoice:
 	var _id = dictionary.id
 	var _customer_id = dictionary.customer_id
 	var _date = dictionary.date
-	var _table: Array[InvoiceRow]
+	var _table: Array[InvoiceRowData]
 	for row in dictionary.table:
-		_table.push_back(InvoiceRow.from_dictionary(row))
+		_table.push_back(InvoiceRowData.from_dictionary(row))
 	return Invoice.new(_id, _customer_id, _date, _table)

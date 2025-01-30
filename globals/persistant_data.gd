@@ -1,7 +1,7 @@
 extends Node
 
 signal customers_updated
-signal invoice_updated
+signal new_invoice_to_display(invoice: Invoice)
 
 const PERSISTENT_DIRECTORY := "/Daten"
 const CUSTOMER_DATA_PATH := PERSISTENT_DIRECTORY + "/Kunden.json"
@@ -90,7 +90,6 @@ func save_invoice(invoice: Invoice, path: String) -> void:
 	var file = FileAccess.open(path + "/" + file_name, FileAccess.WRITE)
 	var json_string = JSON.stringify(invoice.to_dictionary(), "\t")
 	file.store_string(json_string)
-	invoice_updated.emit()
 
 func _load_invoice(path: String) -> Invoice:
 	if not FileAccess.file_exists(path):
@@ -110,3 +109,12 @@ func add_customer(customer: Customer) -> void:
 func delete_customer(customer: Customer) -> void:
 	customers.erase(customer)
 	save_customer_data()
+
+func display_invoice(new_invoice: Invoice) -> void:
+	for invoice in unfinished_invoices:
+		if invoice.id == new_invoice.id:
+			new_invoice_to_display.emit(invoice)
+			return
+	unfinished_invoices.push_back(new_invoice)
+	save_invoice(new_invoice, unfinished_invoices_absolute_directory)
+	new_invoice_to_display.emit(new_invoice)

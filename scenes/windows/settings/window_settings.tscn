@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c81q7wwyyau14"]
+
+[ext_resource type="PackedScene" uid="uid://bnbf1vlw7t8uo" path="res://scenes/windows/window_base.tscn" id="1_c4s5w"]
+[ext_resource type="Script" path="res://scenes/windows/settings/window_settings.gd" id="2_8844j"]
+
+[node name="window_base" instance=ExtResource("1_c4s5w")]
+title = "Einstellungen"
+script = ExtResource("2_8844j")

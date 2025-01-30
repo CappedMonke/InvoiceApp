@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bimjavdw4ifpw"]
+[gd_scene load_steps=3 format=3 uid="uid://bnbf1vlw7t8uo"]
 
 [ext_resource type="Theme" uid="uid://b1v6gwakv465t" path="res://scenes/windows/window.tres" id="1_1xb8s"]
 [ext_resource type="Script" path="res://scenes/windows/window_base.gd" id="2_v0j1o"]

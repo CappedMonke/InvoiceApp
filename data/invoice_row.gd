@@ -1,4 +1,4 @@
-class_name InvoiceRow
+class_name InvoiceRowData
 extends RefCounted
 
 var date: String
@@ -18,8 +18,8 @@ func to_dictionary() -> Dictionary:
 	}
 	return dictionary
 
-static func from_dictionary(dictionary: Dictionary) -> InvoiceRow:
+static func from_dictionary(dictionary: Dictionary) -> InvoiceRowData:
 	var _date = dictionary.date
 	var _service = dictionary.service
 	var _price = dictionary.price
-	return InvoiceRow.new(_date, _service, _price)
+	return InvoiceRowData.new(_date, _service, _price)

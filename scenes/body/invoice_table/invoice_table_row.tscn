@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://gj1umhdh8wiq"]
+
+[ext_resource type="Theme" uid="uid://dp1pq2ublfo4j" path="res://scenes/body/invoice_table/table.tres" id="1_xil1m"]
+[ext_resource type="Script" path="res://scenes/body/invoice_table/invoice_table_row.gd" id="2_6nx0w"]
+
+[node name="invoice_row" type="Control"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xil1m")
+script = ExtResource("2_6nx0w")
+
+[node name="header" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme = ExtResource("1_xil1m")
+
+[node name="date_input" type="TextEdit" parent="header"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme = ExtResource("1_xil1m")
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="service_input" type="TextEdit" parent="header"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_xil1m")
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="price_input" type="TextEdit" parent="header"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme = ExtResource("1_xil1m")
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[connection signal="text_changed" from="header/date_input" to="." method="_on_date_input_text_changed"]
+[connection signal="text_changed" from="header/service_input" to="." method="_on_service_input_text_changed"]
+[connection signal="text_changed" from="header/price_input" to="." method="_on_price_input_text_changed"]
