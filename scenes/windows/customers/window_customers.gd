@@ -53,6 +53,8 @@ func _on_input_text_changed(new_text: String) -> void:
 			var first_part = new_text
 			var second_part = predicted_customer.name.substr(first_part.length(), predicted_customer.name.length())
 			prediction.text = first_part + second_part
+		else:
+			prediction.text = ""
 	previous_text = new_text
 	_update_customer_list()
 

@@ -1,6 +1,7 @@
 class_name Customer
 extends RefCounted
 
+var id: String
 var name: String
 var street: String
 var house_number: String
@@ -8,8 +9,9 @@ var zip: String
 var city: String
 var email: String
 var phone_number: String
+var invoices: Array[String]
 
-func _init(_name: String, _street: String, _house_number: String, _zip: String, _city: String, _email := "", _phone_number := "") -> void:
+func _init(_name: String, _street: String, _house_number: String, _zip: String, _city: String, _email := "", _phone_number := "", _id := "", _invoices: Array[String] = []) -> void:
 	name = _name
 	street = _street
 	house_number = _house_number
@@ -17,6 +19,10 @@ func _init(_name: String, _street: String, _house_number: String, _zip: String, 
 	city = _city
 	email = _email
 	phone_number = _phone_number
+	id = _id
+	invoices = _invoices
+	if id == "":
+		id = str(get_instance_id())
 
 func to_dictionary() -> Dictionary:
 	var dictionary := {
@@ -26,7 +32,9 @@ func to_dictionary() -> Dictionary:
 		"zip" = zip,
 		"city" = city,
 		"email" = email,
-		"phone_number" = phone_number
+		"phone_number" = phone_number,
+		"id" = id,
+		"invoices" = invoices
 	}
 	return dictionary
 
@@ -38,5 +46,9 @@ static func from_dictionary(dictionary: Dictionary) -> Customer:
 	var _city = dictionary.city
 	var _email = dictionary.email
 	var _phone_number = dictionary.phone_number
-	var new_customer = Customer.new(_name, _street, _house_number, _zip, _city, _email, _phone_number)
+	var _id = dictionary.id
+	var _invoices: Array[String]
+	for invoice in dictionary.invoices:
+		_invoices.push_back(invoice)
+	var new_customer = Customer.new(_name, _street, _house_number, _zip, _city, _email, _phone_number, _id, _invoices)
 	return new_customer
