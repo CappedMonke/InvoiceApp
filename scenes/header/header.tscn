@@ -19,31 +19,37 @@ script = ExtResource("2_k4txv")
 
 [node name="new_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Neu"
 
 [node name="open_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Öffnen"
 
 [node name="complete_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Abschließen"
 
 [node name="shortcuts_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Kürzel"
 
 [node name="customers_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Kunden"
 
 [node name="settings_button" type="Button" parent="buttons"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("1_qhn28")
 text = "Einstellungen"
 

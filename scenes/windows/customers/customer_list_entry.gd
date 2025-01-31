@@ -24,7 +24,7 @@ func _on_delete_button_pressed() -> void:
 	add_child(window_confirmation)
 	var confirmation_string := "Soll Kunde \"" + customer.name + "\" wirklich gelöscht werden?"
 	window_confirmation.initialize(confirmation_string)
-	window_confirmation.action_confirmed.connect(PersistantData.delete_customer.bind(customer))
+	window_confirmation.action_confirmed.connect(PersistentData.delete_customer.bind(customer))
 
 func _on_customer_button_pressed() -> void:
 	customer_selected.emit(customer)

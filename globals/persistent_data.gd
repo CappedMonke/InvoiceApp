@@ -17,6 +17,10 @@ var exported_invoices_absolute_directory: String
 
 var customers: Array[Customer]
 var unfinished_invoices: Array[Invoice]
+var latest_invoice_number := 0:
+	get():
+		latest_invoice_number += 1
+		return latest_invoice_number - 1
 
 func _ready() -> void:
 	var user_data_directory := OS.get_user_data_dir()
@@ -59,7 +63,7 @@ func save_customer_data() -> void:
 
 func get_customer_by_id(id: String) -> Customer:
 	for customer in customers:
-		if customer.id == id:
+		if customer.uid == id:
 			return customer
 	Logger.log_error("Kunde mit id " + id + " konnte nicht gefunden werden.")
 	return null 
@@ -77,7 +81,7 @@ func _load_unfinished_invoices() -> void:
 	for file in directory.get_files():
 		files.push_back(file)
 	for file in files:
-		var invoice := _load_invoice(unfinished_invoices_absolute_directory + "/" + file)
+		var invoice := load_invoice(unfinished_invoices_absolute_directory + "/" + file)
 		unfinished_invoices.push_back(invoice)
 
 func _save_unfinished_invoices() -> void:
@@ -85,13 +89,13 @@ func _save_unfinished_invoices() -> void:
 		save_invoice(invoice, unfinished_invoices_absolute_directory)
 
 func save_invoice(invoice: Invoice, path: String) -> void:
-	var file_name := invoice.date + "_" + get_customer_by_id(invoice.customer_id).name + ".json"
+	var file_name := invoice.number + "_" + invoice.date + "_" + get_customer_by_id(invoice.customer_id).name + ".json"
 	file_name = file_name.replacen(" ", "_")
 	var file = FileAccess.open(path + "/" + file_name, FileAccess.WRITE)
 	var json_string = JSON.stringify(invoice.to_dictionary(), "\t")
 	file.store_string(json_string)
 
-func _load_invoice(path: String) -> Invoice:
+func load_invoice(path: String) -> Invoice:
 	if not FileAccess.file_exists(path):
 		Logger.log_error("Die Datei \"" + path + "\" existiert nicht. Es konnten keine Kundendaten geladen werden.")
 		return

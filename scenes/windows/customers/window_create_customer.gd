@@ -50,7 +50,7 @@ func _on_create_customer_pressed() -> void:
 		customer.city = city_input.text
 		customer.email = email_input.text
 		customer.phone_number = phone_number_input.text
-		PersistantData.save_customer_data()
+		PersistentData.save_customer_data()
 		return
 	
 	# Create new customer
@@ -62,7 +62,7 @@ func _on_create_customer_pressed() -> void:
 		city_input.text,
 		email_input.text,
 		phone_number_input.text)
-	PersistantData.add_customer(new_customer)
+	PersistentData.add_customer(new_customer)
 	queue_free()
 
 func _is_input_valid(label: Label, input: String) -> bool:

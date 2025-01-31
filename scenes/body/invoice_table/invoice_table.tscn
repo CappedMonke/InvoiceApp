@@ -9,6 +9,8 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_v8b0c")
 script = ExtResource("1_or3hn")
 
@@ -27,16 +29,18 @@ layout_mode = 2
 theme = ExtResource("1_v8b0c")
 
 [node name="date_label" type="Label" parent="table/h_box"]
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-size_flags_stretch_ratio = 0.25
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_v8b0c")
 text = "Datum"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="service_label" type="Label" parent="table/h_box"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -46,15 +50,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="price_label" type="Label" parent="table/h_box"]
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-size_flags_stretch_ratio = 0.25
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_v8b0c")
 text = "Preis"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="rows" type="VBoxContainer" parent="table"]
+[node name="scrollbox" type="ScrollContainer" parent="table"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_v8b0c")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="rows" type="VBoxContainer" parent="table/scrollbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

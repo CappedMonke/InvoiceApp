@@ -18,7 +18,7 @@ config/icon="res://assets/logo/icon.svg"
 [autoload]
 
 Logger="*res://globals/logger.gd"
-PersistantData="*res://globals/persistant_data.gd"
+PersistentData="*res://globals/persistent_data.gd"
 
 [display]
 

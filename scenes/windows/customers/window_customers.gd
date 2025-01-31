@@ -14,8 +14,8 @@ var previous_matching_customers: Array[Customer]
 func _ready() -> void:
 	super._ready()
 	fill_customer_list()
-	PersistantData.customers_updated.connect(_on_customers_updated)
-	previous_matching_customers = PersistantData.customers
+	PersistentData.customers_updated.connect(_on_customers_updated)
+	previous_matching_customers = PersistentData.customers
 
 func _on_add_customer_button_pressed() -> void:
 	var window_create_customer := WINDOW_CREATE_CUSTOMER.instantiate()
@@ -27,7 +27,7 @@ func _on_customers_updated() -> void:
 	fill_customer_list()
 
 func fill_customer_list() -> void:
-	for customer in PersistantData.customers:
+	for customer in PersistentData.customers:
 		var customer_list_entry := CUSTOMER_LIST_ENTRY.instantiate()
 		customer_list.add_child(customer_list_entry)
 		customer_list_entry.set_customer(customer)
@@ -36,7 +36,7 @@ func fill_customer_list() -> void:
 func _on_input_text_changed(new_text: String) -> void:
 	if new_text == "":
 		prediction.text = new_text
-		previous_matching_customers = PersistantData.customers
+		previous_matching_customers = PersistentData.customers
 	else:
 		var matching_customers: Array[Customer]
 		if new_text.length() > previous_text.length():
@@ -44,7 +44,7 @@ func _on_input_text_changed(new_text: String) -> void:
 				if customer.name.to_lower().contains(new_text.to_lower()):
 					matching_customers.push_back(customer)
 		if new_text.length() < previous_text.length():
-			for customer in PersistantData.customers:
+			for customer in PersistentData.customers:
 				if customer.name.to_lower().contains(new_text.to_lower()):
 					matching_customers.push_back(customer)
 		previous_matching_customers = matching_customers
