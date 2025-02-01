@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc1nwu66sbqfj"]
+
+[ext_resource type="Texture2D" uid="uid://bkkbdofct2av2" path="res://assets/logos/icon.svg" id="1_nefbi"]
+
+[node name="invoice" type="MarginContainer"]
+offset_right = 2480.0
+offset_bottom = 3508.0
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 240
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 240
+
+[node name="v_box" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="h_box" type="HBoxContainer" parent="v_box"]
+layout_mode = 2
+
+[node name="v_box" type="VBoxContainer" parent="v_box/h_box"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="v_box/h_box/v_box"]
+layout_mode = 2
+texture = ExtResource("1_nefbi")
